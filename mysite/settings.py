@@ -159,8 +159,7 @@ LOGOUT_REDIRECT_URL = '/'
 # Crispy Forms Package
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
-# Password Reset
-# Email API Configuration with Sendgrid
+#  Password Reset and Email API Configuration with Sendgrid
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 SENDGRID_API_KEY = os.getenv('SENDGRID_API_KEY')
 EMAIL_HOST = 'smtp.sendgrid.net'
