@@ -160,14 +160,8 @@ LOGOUT_REDIRECT_URL = '/'
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 # Password Reset
+# Email API Configuration with Sendgrid
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-# EMAIL_HOST = 'smtp.gmail.com'
-# EMAIL_HOST_USER = 'gabecmoitproject@gmail.com'
-# EMAIL_HOST_PASSWORD = 'zdttlqbwzkvaxuwf'
-# EMAIL_PORT = 587
-# EMAIL_USE_TLS = True
-
-# Email API Configuration Attempt with Sendgrid
 SENDGRID_API_KEY = os.getenv('SENDGRID_API_KEY')
 EMAIL_HOST = 'smtp.sendgrid.net'
 EMAIL_HOST_USER = 'apikey'
