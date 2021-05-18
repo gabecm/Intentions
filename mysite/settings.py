@@ -153,8 +153,8 @@ except ImportError:
     found = False
 
 # Login and Logout Redirect Links
-LOGIN_REDIRECT_URL = '/'
-LOGOUT_REDIRECT_URL = '/'
+LOGIN_REDIRECT_URL = 'intentions:dashboard'
+LOGOUT_REDIRECT_URL = 'intentions:home'
 
 # Crispy Forms Package
 CRISPY_TEMPLATE_PACK = 'bootstrap4'

@@ -8,14 +8,12 @@
 </head>
 <body>
     {% block content %}
-    {% if user.is_authenticated %}
-        <p>Hello, <strong>{{user.username}}</strong>! Welcome to the Intentions App.</p>
-        <p><a href="{% url 'login' %}">Log Out</a></p>
-    {% else %}
-        <p>You are not logged in</p>
-        <a href="{% url 'login' %}">Login</a>
-        <a href="{% url 'intentions:signup' %}">Sign Up</a>
-    {% endif %}
+        <div class="container my-3">
+        {#        Add Jumbotron later#}
+            <h5>You are not logged in</h5>
+            <a class="btn btn-primary" href="{% url 'login' %}">Login</a>
+            <a class="btn btn-secondary" href="{% url 'intentions:signup' %}">Sign Up</a>
+        </div>
     {% endblock %}
 </body>
 </html>
