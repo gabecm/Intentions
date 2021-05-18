@@ -8,8 +8,9 @@
 </head>
 <body>
     {% block content %}
-        <div class="container">
-            <p>You are not logged in</p>
+        <div class="container my-3">
+        {#        Add Jumbotron later#}
+            <h5>You are not logged in</h5>
             <a class="btn btn-primary" href="{% url 'login' %}">Login</a>
             <a class="btn btn-secondary" href="{% url 'intentions:signup' %}">Sign Up</a>
         </div>
