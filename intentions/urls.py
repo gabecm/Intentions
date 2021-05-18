@@ -22,5 +22,6 @@ from . import views
 app_name = 'intentions'
 urlpatterns = [
     path('', views.home, name='home'),
+    path('dashboard/', views.dashboard, name='dashboard'),
     path('accounts/signup/', SignUpView.as_view(), name='signup'),
 ]
