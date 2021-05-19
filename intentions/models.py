@@ -2,11 +2,15 @@ from django.contrib.auth.models import User
 from django.db import models
 from django.utils import timezone
 
+
 # Create your models here.
 
 
 def today_prompt():
-    return Prompt.objects.get(date__date=timezone.now().date())
+    try:
+        return Prompt.objects.get(date__date=timezone.localtime(timezone.now()).date())
+    except:
+        return None
 
 
 # Prompt Model

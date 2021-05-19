@@ -27,7 +27,7 @@
                           </ul>
                     </div>
                     <div class="row">
-                        <a type="button" class="mt-3 p-3 col btn btn-light" href="#">View Older Entries</a>
+                        <a type="button" class="mt-3 p-3 col btn btn-light" href="{% url 'intentions:entries' %}">View Older Entries</a>
                     </div>
                 </div>
                 <div class="col ml-5">
@@ -35,12 +35,18 @@
                         <h6 class="card-header">
                             Prompt of the Day
                         </h6>
+                        {% if prompt %}
                         <div class="card-body">
                             <p class="card-text">{{ prompt.prompt_text }}</p>
                         </div>
+                        {% else %}
+                         <div class="card-body">
+                            <p class="card-text">There is no prompt for today</p>
+                        </div>
+                        {% endif %}
                     </div>
                     <div class="row">
-                        <a type="button" class="mt-3 p-3 col btn btn-dark" href="{% url 'intentions:entry' %}">Add a New Entry</a>
+                        <a type="button" class="mt-3 p-3 col btn btn-dark" href="{% url 'intentions:entry_page' %}">Add a New Entry</a>
                     </div>
                 </div>
             </div>

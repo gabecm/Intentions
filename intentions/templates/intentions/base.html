@@ -17,11 +17,17 @@
                 Intentions
         </a>
         {% if user.is_authenticated %}
-        <div class="collapse navbar-collapse my-0 justify-content-end mr-3">
-            <div class="navbar-nav">
-                <a class="nav-item nav-link" href="{% url 'logout' %}">Log Out</a>
+            <div class="collapse navbar-collapse my-0 justify-content-end mr-3">
+                <div class="navbar-nav">
+                    <a class="nav-item nav-link" href="{% url 'logout' %}">Log Out</a>
+                </div>
             </div>
-        </div>
+        {% else %}
+            <div class="collapse navbar-collapse my-0 justify-content-end mr-3">
+                <div class="navbar-nav">
+                    <a class="nav-item nav-link" href="{% url 'login' %}">Login</a>
+                </div>
+            </div>
         {% endif %}
     </nav>
     <main class="">

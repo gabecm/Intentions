@@ -37,7 +37,7 @@ def dashboard(request):
 
 def entry_page(request):
     user = request.user
-    prompt = today_prompt() or None
+    prompt = today_prompt()
 
     if not user.is_authenticated:
         return HttpResponseRedirect(reverse('intentions:home'))
@@ -54,7 +54,17 @@ def entry_page(request):
         return HttpResponseRedirect(reverse('intentions:dashboard'))
 
     form = EntryForm()
-    return render(request, 'intentions/entry.html', {'form': form})
+    return render(request, 'intentions/entry_page.html', {'form': form})
+
+
+class EntriesView(generic.ListView):
+    template_name = 'intentions/entries.html'
+    context_object_name = 'entries'
+
+    def get_queryset(self):
+        return Entry.objects.filter(
+            user=self.request.user,
+        ).order_by('-date')
 
 
 class SignUpView(generic.CreateView):

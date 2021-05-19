@@ -31,6 +31,11 @@ class NewUserForm(UserCreationForm):
 
 
 class EntryForm(forms.ModelForm):
+    if today_prompt() is not None:
+        prompt_text = today_prompt().prompt_text
+    else:
+        prompt_text = ''
+
     mood = forms.ChoiceField(
         choices=MOOD_CHOICES, widget=forms.RadioSelect,
         label='How are you feeling today?')
@@ -41,7 +46,7 @@ class EntryForm(forms.ModelForm):
     )
 
     prompt_response = forms.CharField(
-        label=today_prompt().prompt_text + ' (500 Char)',
+        label=prompt_text + ' (500 Char)',
         max_length=500,
         widget=forms.Textarea,
     )
