@@ -57,6 +57,14 @@ def entry_page(request):
     return render(request, 'intentions/entry_page.html', {'form': form})
 
 
+class EntryView(generic.DetailView):
+    model = Entry
+    template_name = 'intentions/entry.html'
+
+    def get_queryset(self):
+        return Entry.objects.filter(date__lte=timezone.localtime(timezone.now()))
+
+
 class EntriesView(generic.ListView):
     template_name = 'intentions/entries.html'
     context_object_name = 'entries'

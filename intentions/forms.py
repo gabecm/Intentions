@@ -4,11 +4,11 @@ from django.contrib.auth.models import User
 from intentions.models import Entry, Prompt, today_prompt
 
 MOOD_CHOICES = [
-    (1, 'Bad'),
-    (2, 'Not Good'),
-    (3, 'Okay'),
-    (4, 'Pretty Good'),
-    (5, 'Great!'),
+    ('Bad', 'Bad'),
+    ('Not Good', 'Not Good'),
+    ('Okay', 'Okay'),
+    ('Pretty Good', 'Pretty Good'),
+    ('Great!', 'Great!'),
 ]
 
 
@@ -37,17 +37,17 @@ class EntryForm(forms.ModelForm):
         prompt_text = ''
 
     mood = forms.ChoiceField(
-        choices=MOOD_CHOICES, widget=forms.RadioSelect,
+        choices=MOOD_CHOICES, widget=forms.RadioSelect(attrs={'required': 'required'}),
         label='How are you feeling today?')
 
     headspace = forms.CharField(
-        label='What is taking up most of my headspace? (15 Char)',
+        label='What is taking up most of my headspace? (50 Char)',
         max_length=15,
     )
 
     prompt_response = forms.CharField(
-        label=prompt_text + ' (500 Char)',
-        max_length=500,
+        label=prompt_text + ' (2000 Char)',
+        max_length=2000,
         widget=forms.Textarea,
     )
 
