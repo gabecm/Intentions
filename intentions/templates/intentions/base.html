@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en" class="h-100">
 <head>
@@ -5,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>{% block title %}Base Page{% endblock %}</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel ="stylesheet" href="{% static 'intentions/bootstrap-social.css' %}">
     <style>
         .asteriskField {
             display: none;
@@ -34,12 +36,30 @@
         {% block content %}
         {% endblock %}
     </main>
-    <footer class="footer mt-auto footer-copyright text-center py-3 card-footer bg-light footer-font-style text-muted">
-        © Copyright 2021: Gabriel Mallari
+    <footer class="footer mt-auto footer-copyright text-center card-footer bg-light footer-font-style text-muted">
+        <ul class="list-unstyled list-inline text-center">
+            <li class="list-inline-item mx-3">
+                <a class="btn btn-social-icon btn-github" href="https://github.com/gabecm" target="_blank">
+                    <span class="fa fa-github"></span>
+                </a>
+            </li>
+            <li class="list-inline-item mx-3">
+                <a class="btn btn-social-icon btn-linkedin" href="https://www.linkedin.com/in/gabriel-mallari/" target="_blank">
+                    <span class="fa fa-linkedin"></span>
+                </a>
+            </li>
+            <li class="list-inline-item mx-3">
+                <a class="btn btn-social-icon btn-google" href="mailto:gcm5ef@virginia.edu" target="_blank">
+                    <span class="fa fa-google"></span>
+                </a>
+            </li>
+        </ul>
+        © Copyright 2021: Intentions
     </footer>
 
     {# Bootstrap Scripts #}
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-
+    {# Fontawesome Script #}
+    <script src="https://kit.fontawesome.com/8e15fae9ea.js" crossorigin="anonymous"></script>
 </body>
 </html>
