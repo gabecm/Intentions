@@ -75,6 +75,11 @@ class EntriesView(generic.ListView):
         ).order_by('-date')
 
 
+class PromptView(generic.DetailView):
+    model = Prompt
+    template_name = 'intentions/prompt.html'
+
+
 class SignUpView(generic.CreateView):
     form_class = NewUserForm
     success_url = reverse_lazy('login')

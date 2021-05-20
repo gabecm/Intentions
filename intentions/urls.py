@@ -26,5 +26,6 @@ urlpatterns = [
     path('entry/<int:pk>/', views.EntryView.as_view(), name='entry'),
     path('entry_page/', views.entry_page, name='entry_page'),
     path('entries/', views.EntriesView.as_view(), name='entries'),
+    path('prompt/<int:pk>', views.PromptView.as_view(), name='prompt'),
     path('accounts/signup/', SignUpView.as_view(), name='signup'),
 ]
