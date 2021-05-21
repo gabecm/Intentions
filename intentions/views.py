@@ -42,15 +42,13 @@ def entry_page(request):
     if not user.is_authenticated:
         return HttpResponseRedirect(reverse('intentions:home'))
     if request.method == 'POST':
-        new_entry = Entry(
-            user=user,
-            prompt=prompt,
-            date=timezone.now(),
-            mood=request.POST.get('mood'),
-            headspace=request.POST.get('headspace'),
-            prompt_response=request.POST.get('prompt_response')
-        )
-        new_entry.save()
+        form = EntryForm(request.POST or None)
+        if form.is_valid():
+            new_entry = form.save(commit=False)
+            new_entry.user = user
+            new_entry.prompt = prompt
+            new_entry.date = timezone.now()
+            new_entry.save()
         return HttpResponseRedirect(reverse('intentions:dashboard'))
 
     form = EntryForm()

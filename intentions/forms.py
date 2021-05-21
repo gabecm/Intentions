@@ -41,8 +41,8 @@ class EntryForm(forms.ModelForm):
         label='How are you feeling today?')
 
     headspace = forms.CharField(
-        label='What is taking up most of my headspace? (50 Char)',
-        max_length=15,
+        label='In a couple words, what is taking up most of my headspace? (50 Char)',
+        max_length=50,
     )
 
     prompt_response = forms.CharField(
@@ -54,6 +54,7 @@ class EntryForm(forms.ModelForm):
     public = forms.BooleanField(
         label='I would like this entry to be public',
         required=False,
+        initial=False,
     )
 
     class Meta:

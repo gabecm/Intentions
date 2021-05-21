@@ -27,7 +27,7 @@ class Entry(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
     prompt = models.ForeignKey(Prompt, on_delete=models.CASCADE, null=True)
     date = models.DateTimeField('date published')
-    mood = models.CharField(max_length=10, default='Okay')
+    mood = models.CharField(max_length=20, default='Okay')
     headspace = models.CharField(max_length=50)
     prompt_response = models.CharField(max_length=2000)
     public = models.BooleanField(default=False)
