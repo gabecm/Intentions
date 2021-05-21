@@ -12,13 +12,16 @@
             <h2>Prompt Responses</h2>
             {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
             <h4 class="border-bottom mb-4">{{ prompt.prompt_text }}</h4>
-            <ul class="list_unstyled my-3">
+            <ul class="list_unstyled">
                 {% for entry in prompt.entry_set.all %}
                     {% if entry.public %}
                         <li class="media my-3">
                             <img class="mr-3" width="64px" src="{% static 'intentions/images/profile-icon.jpg' %}" alt="Generic placeholder image">
                             <div class="media-body">
-                                <h5 class="mt-0 mb-1">{{ entry.user.username }}</h5>
+                                <h5 class="mt-0 mb-1">
+                                    <span class="badge badge-info badge-pill">@{{ entry.user.username }}</span>
+                                    <small class="badge badge-pill badge-secondary mr-3">{{ entry.date.time }}</small>
+                                </h5>
                                 <p>{{ entry.prompt_response }}</p>
                             </div>
                         </li>

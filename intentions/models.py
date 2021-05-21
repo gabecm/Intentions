@@ -32,6 +32,9 @@ class Entry(models.Model):
     prompt_response = models.CharField(max_length=2000)
     public = models.BooleanField(default=False)
 
+    class Meta:
+        ordering = ['-date']
+
     def get_entries(user):
         user_entries = Entry.objects.filter(user=user)
         return user_entries
