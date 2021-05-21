@@ -9,12 +9,11 @@
 <body>
     {% block content %}
         <div class="container my-3">
-            <h4>{{ user.first_name }}'s Entries</h4>
+            <h2>{{ user.first_name }}'s Entries</h2>
             {% if entries %}
                 <div class="list-group">
                     {% for entry in entries %}
-{#            <a href="{% url 'polls:detail' question.id %}" class="list-group-item list-group-item-action">{{ question.question_text }}</a>#}
-                        <a href="#" class="list-group-item list-group-item-action justify-content-between d-flex">
+                        <a href="{% url 'intentions:entry' entry.id %}" class="list-group-item list-group-item-action justify-content-between d-flex">
                             {{ entry.prompt }}
                             <div>{{ entry.date }}</div>
                         </a>

@@ -27,10 +27,13 @@ class Entry(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
     prompt = models.ForeignKey(Prompt, on_delete=models.CASCADE, null=True)
     date = models.DateTimeField('date published')
-    mood = models.IntegerField(default=3)
-    headspace = models.CharField(max_length=15)
-    prompt_response = models.CharField(max_length=500)
+    mood = models.CharField(max_length=20, default='Okay')
+    headspace = models.CharField(max_length=50)
+    prompt_response = models.CharField(max_length=2000)
     public = models.BooleanField(default=False)
+
+    class Meta:
+        ordering = ['-date']
 
     def get_entries(user):
         user_entries = Entry.objects.filter(user=user)

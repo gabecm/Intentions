@@ -1,0 +1,35 @@
+{% extends 'intentions/base.html' %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Entry Submission{% endblock %}</title>
+</head>
+<body>
+    {% block content %}
+        <div class="container my-3">
+            {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+            <div class="mb-4 border-bottom">
+                <h2>Entry of the Day</h2>
+                <p>{{ entry.date }}</p>
+            </div>
+
+            <div class="my-3">
+                <h5>How you were feeling that day:</h5>
+                <p class="border p-2">{{ entry.mood }}</p>
+            </div>
+
+            <div class="my-3">
+                <h5>What was taking up your headspace that day:</h5>
+                <p class="border p-2">{{ entry.headspace }}</p>
+            </div>
+
+            <div class="my-3 mt-5">
+                <h5>Journal Prompt: {{ entry.prompt.prompt_text }}</h5>
+                <p class="border p-2">{{ entry.prompt_response }}</p>
+            </div>
+        </div>
+    {% endblock %}
+</body>
+</html>
