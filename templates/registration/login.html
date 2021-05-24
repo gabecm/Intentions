@@ -13,9 +13,9 @@
             <form method="post">
               {% csrf_token %}
               {{ form|crispy }}
-              <button type="submit" class="btn btn-primary">Log In</button>
-                <a href="{% url 'intentions:signup' %}" class="btn btn-secondary">Sign Up</a>
-                <a href="{% url 'password_reset' %}" class="btn btn-dark">Reset Password</a>
+              <button type="submit" class="btn btn-purple text-white">Log In</button>
+                <a href="{% url 'intentions:signup' %}" class="btn btn-pink text-white">Sign Up</a>
+                <a href="{% url 'password_reset' %}" class="btn btn-secondary border-radius">Reset Password</a>
             </form>
         </div>
     {% endblock %}

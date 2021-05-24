@@ -9,7 +9,6 @@ from django.urls import reverse_lazy, reverse
 from intentions.models import Prompt, Entry, today_prompt
 from .forms import EntryForm
 import datetime
-from django.core.mail import send_mail
 
 # Create your views here.
 
@@ -68,9 +67,40 @@ class EntriesView(generic.ListView):
     context_object_name = 'entries'
 
     def get_queryset(self):
-        return Entry.objects.filter(
-            user=self.request.user,
-        ).order_by('-date')
+        entries = Entry.objects.filter(user=self.request.user,).order_by('-date')
+        query = self.request.GET.get('title')
+        sort = self.request.GET.get('sort')
+        filter = self.request.GET.get('filter')
+        if query:
+            entries = entries.filter(prompt__prompt_text__icontains=query)
+        if sort:
+            entries = entries.order_by(sort)
+        if filter:
+            today = datetime.date.today()
+            if filter == 'week':
+                start_week = today - datetime.timedelta(today.weekday())
+                end_week = start_week + datetime.timedelta(days=7)
+                entries = entries.filter(date__range=[start_week, end_week])
+            if filter == 'month':
+                entries = entries.filter(date__month=today.month, date__year=today.year)
+            if filter == 'year':
+                entries = entries.filter(date__year=today.year)
+        return entries
+
+    def get_context_data(self):
+        context = super(EntriesView, self).get_context_data()
+        query = self.request.GET.get('title')
+        sort = self.request.GET.get('sort')
+        filter = self.request.GET.get('filter')
+        if query:
+            context['query'] = query
+        else:
+            context['query'] = ''
+        if sort:
+            context['sort'] = sort
+        if filter:
+            context['filter'] = filter
+        return context
 
 
 class PromptView(generic.DetailView):

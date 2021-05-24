@@ -9,14 +9,14 @@
 <body>
     {% block content %}
         <div class="container my-3">
-            <div class="jumbotron">
-              <h1 class="display-4">Welcome to your next journaling app!</h1>
-              <p class="lead">Intentions is an online journaling app focused on self-reflection</p>
+            <div class="jumbotron purple">
+              <h1 class="display-4 text-white">Welcome to your next journaling app!</h1>
+              <p class="lead text-white">Intentions is an online journaling app focused on self-reflection</p>
               <hr class="my-4">
-              <p>You're able to write daily entries about your mood, respond to thought provoking
+              <p class="text-white">You're able to write daily entries about your mood, respond to thought provoking
                   prompts, and much more!</p>
-              <p class="lead">
-                  <a class="btn btn-primary btn-lg" href="{% url 'intentions:signup' %}" role="sign-up">Sign Up</a>
+              <p class="lead text-white">
+                  <a class="btn btn-pink btn-lg text-white py-2 px-4" href="{% url 'intentions:signup' %}" role="sign-up">Sign Up</a>
               </p>
             </div>
         </div>
