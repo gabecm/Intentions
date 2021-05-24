@@ -68,9 +68,28 @@ class EntriesView(generic.ListView):
     context_object_name = 'entries'
 
     def get_queryset(self):
-        return Entry.objects.filter(
-            user=self.request.user,
-        ).order_by('-date')
+        entries = Entry.objects.filter(user=self.request.user,).order_by('-date')
+        query = self.request.GET.get('title')
+        sort = self.request.GET.get('sort')
+        if query:
+            entries = entries.filter(
+                prompt__prompt_text__icontains=query
+            )
+        if sort:
+            entries = entries.order_by(sort)
+        return entries
+
+    def get_context_data(self):
+        context = super(EntriesView, self).get_context_data()
+        query = self.request.GET.get('title')
+        sort = self.request.GET.get('sort')
+        if query:
+            context['query'] = query
+        else:
+            context['query'] = ''
+        if sort:
+            context['sort'] = sort
+        return context
 
 
 class PromptView(generic.DetailView):
