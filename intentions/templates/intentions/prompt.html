@@ -11,7 +11,10 @@
         <div class="container my-3">
             <h2>Prompt Responses</h2>
             {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
-            <h4 class="border-bottom mb-4">{{ prompt.prompt_text }}</h4>
+            <div class="border-bottom justify-content-between">
+                <h4 class="d-inline">{{ prompt.prompt_text }}</h4>
+                <span class="d-inline float-right">{{ prompt.date|date:'DATE_FORMAT' }}</span>
+            </div>
             <ul class="list_unstyled">
                 {% for entry in prompt.entry_set.all %}
                     {% if entry.public %}
@@ -20,7 +23,7 @@
                             <div class="media-body">
                                 <h5 class="mt-0 mb-1">
                                     <span class="badge badge-info badge-pill purple">@{{ entry.user.username }}</span>
-                                    <small class="badge badge-pill badge-secondary mr-3 pink">{{ entry.date.time }}</small>
+                                    <small class="badge badge-pill badge-secondary mr-3 pink">{{ entry.date|date:'P'}}</small>
                                 </h5>
                                 <p>{{ entry.prompt_response }}</p>
                             </div>

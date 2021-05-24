@@ -22,7 +22,7 @@
                                   <a href="{% url 'intentions:entry' entry.id %}" class="list-group-item list-group-item-action justify-content-between">
                                       <div class="d-flex w-100 justify-content-between">
                                           {{ entry.prompt }}
-                                          <span>{{ entry.date |date:'SHORT_DATE_FORMAT' }}</span>
+                                          <span>{{ entry.date|date:'SHORT_DATE_FORMAT' }}</span>
                                       </div>
                                   </a>
                               {% endfor %}
