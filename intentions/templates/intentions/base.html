@@ -6,28 +6,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>{% block title %}Base Page{% endblock %}</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel ="stylesheet" href="{% static 'intentions/bootstrap-social.css' %}">
-    <style>
-        .asteriskField {
-            display: none;
-        }
-    </style>
-<body class="d-flex flex-column h-100">
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand ml-3" href="{% url 'intentions:dashboard' %}">
-            <img src="https://getbootstrap.com/docs/4.0/assets/brand/bootstrap-solid.svg" width="30" height="30" alt="">
+    <link rel="stylesheet" href="{% static 'intentions/bootstrap-social.css' %}">
+    <link rel="stylesheet" href="{% static 'intentions/style.css' %}">
+    <link rel="shortcut icon" href="{% static 'intentions/images/favicon.jpg' %}">
+<body class="d-flex flex-column h-100 bg-light">
+    <nav class="navbar navbar-expand-lg navbar-light purple py-1">
+        <a class="navbar-brand ml-3 text-white font-weight-normal" href="{% url 'intentions:dashboard' %}">
+            <img src="{% static 'intentions/images/intentions-icon.GIF' %}" width="37" height="45" alt="">
                 Intentions
         </a>
         {% if user.is_authenticated %}
             <div class="collapse navbar-collapse my-0 justify-content-end mr-3">
                 <div class="navbar-nav">
-                    <a class="nav-item nav-link" href="{% url 'logout' %}">Log Out</a>
+                    <a class="nav-item nav-link text-white" href="{% url 'logout' %}">Log Out</a>
                 </div>
             </div>
         {% else %}
             <div class="collapse navbar-collapse my-0 justify-content-end mr-3">
                 <div class="navbar-nav">
-                    <a class="nav-item nav-link" href="{% url 'login' %}">Login</a>
+                    <a class="nav-item nav-link text-white" href="{% url 'login' %}">Login</a>
                 </div>
             </div>
         {% endif %}
@@ -36,7 +33,7 @@
         {% block content %}
         {% endblock %}
     </main>
-    <footer class="footer mt-auto footer-copyright text-center card-footer bg-light footer-font-style text-muted">
+    <footer class="footer mt-auto footer-copyright text-center card-footer purple footer-font-style text-white">
         <ul class="list-unstyled list-inline text-center">
             <li class="list-inline-item mx-3">
                 <a class="btn btn-social-icon btn-github" href="https://github.com/gabecm" target="_blank">

@@ -1,0 +1,41 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
+body{
+    font-family: 'Nunito', sans-serif;
+}
+.asteriskField {
+    display: none;
+}
+.purple {
+    background-color: #AAA7F2;
+}
+.text-purple {
+    color: #AAA7F2;
+    transition: 0.25s;
+}
+.text-purple:hover {
+    color: #AA97F2;
+}
+.pink {
+    background-color: #F2C5F0;
+}
+.btn-pink {
+    background-color: #F2C5F0;
+    color: #F2D5F0;
+    border-radius: 0.5rem;
+    transition: 0.25s
+}
+.btn-pink:hover {
+    background-color: #F2B8E0;
+}
+.btn-purple {
+    background-color: #AAA7F2;
+    color: #AAA7F2;
+    border-radius: 0.5rem;
+    transition: 0.25s
+}
+.btn-purple:hover {
+    background-color: #AA97F2;
+}
+.border-radius {
+    border-radius: 0.5rem;
+}

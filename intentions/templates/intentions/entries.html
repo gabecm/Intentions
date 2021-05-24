@@ -13,8 +13,8 @@
             <form class="my-3 form-inline" action="{% url 'intentions:entries' %}" method="get">
                 {% csrf_token %}
                 <div class="form-group mr-2">
-                    <input class="form-control mr-sm-2" type="text" name="title" value={{ query }}>
-                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Submit</button>
+                    <input class="form-control mr-sm-2" type="text" name="title" placeholder="Search..." value={{ query }}>
+                    <button class="btn btn-purple my-2 my-sm-0 text-white" type="submit">Submit</button>
                 </div>
                 <div class="form-group border pl-2 mx-2">
                     Sort By:
