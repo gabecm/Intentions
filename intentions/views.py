@@ -59,7 +59,7 @@ class EntryView(generic.DetailView):
     template_name = 'intentions/entry.html'
 
     def get_queryset(self):
-        return Entry.objects.filter(date__lte=timezone.localtime(timezone.now()))
+        return Entry.objects.filter(date__lte=timezone.localtime(timezone.now()), user=self.request.user)
 
 
 class EntriesView(generic.ListView):

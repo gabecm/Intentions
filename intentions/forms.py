@@ -52,7 +52,7 @@ class EntryForm(forms.ModelForm):
     )
 
     public = forms.BooleanField(
-        label='I would like this entry to be public',
+        label='I would like this prompt response to be public',
         required=False,
         initial=False,
     )
