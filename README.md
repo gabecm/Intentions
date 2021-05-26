@@ -46,7 +46,7 @@ Intentions is an journaling web application focused on self-reflection
 ## License 
 The BSD License
 
-Copyright (c) 2021 HoosRooming
+Copyright (c) 2021 Intentions
 
 All rights reserved.
 
